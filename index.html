@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy 16th Birthday, Daniel!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #2b1055, #7597de, #d499c3, #2b1055);
+      background-size: 600% 600%;
+      animation: gradientMove 15s ease infinite;
+      color: #fff8dc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: left;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      z-index: 0;
+    }
+
+    /* ✨ New background GIF layer ✨ */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmwwNDBrc2c0am1sNHZsNjJpZTI1d29yZzJyNDJhaGh1Z3U4Z2N4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sydEmoTUktAR1Cpfxu/giphy.gif') center center / cover no-repeat;
+      z-index: -2;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1000px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 25px;
+      margin: 4vh auto;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 0 30px rgba(0, 140, 255, 0.6);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      animation: glow 1.5s infinite alternate;
+      color: #ffd700;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ffd700; }
+      to { text-shadow: 0 0 20px #ffea00, 0 0 10px #ffea00; }
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 4px solid #00bfff;
+      box-shadow: 0 0 8px rgba(255, 248, 220, 0.2);
+    }
+
+    .video-container {
+      margin-top: 2.5rem;
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 0 14px rgba(255, 248, 220, 0.3);
+    }
+
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .gif-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 1rem;
+      margin: 3rem auto;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .side-deco {
+      font-size: 1.2rem;
+      max-width: 150px;
+      line-height: 1.5;
+      color: #ffe;
+    }
+
+    .birthday-gif {
+      max-width: 300px;
+      width: 90%;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 0 20px rgba(255, 248, 220, 0.3);
+    }
+
+    .fun-facts {
+      margin-top: 3rem;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .fun-facts h2 {
+      font-size: 1.8rem;
+      color: #ffd700;
+      margin-bottom: 2rem;
+    }
+
+    .fact-item {
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .fact-item p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+
+    .fact-item img {
+      width: 100%;
+      max-width: 250px;
+      margin-top: 0.5rem;
+      border: 3px solid #00bfff;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 191, 255, 0.4);
+    }
+
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #d3d3d3;
+      text-align: center;
+    }
+
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background-color: gold;
+      animation: confettiFall 6s linear infinite;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    #surpriseMessage {
+      display: none;
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 1.5rem;
+      border-radius: 15px;
+      color: #fff8dc;
+    }
+
+    #surpriseMessage img {
+      max-width: 300px;
+      border: 4px solid #00bfff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00bfff;
+      margin-top: 1rem;
+    }
+
+    .surprise-btn {
+      padding: 12px 20px;
+      font-size: 1.2rem;
+      background: #ffd700;
+      color: #2b1055;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #fff;
+      margin: 2rem auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.backgroundColor = ["gold", "#ff69b4", "#00ffff", "#ffd700"][Math.floor(Math.random() * 4)];
+      confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      confetti.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(confetti);
+    }
+
+    function showSurprise() {
+      const surprise = document.getElementById('surpriseMessage');
+      surprise.style.display = 'block';
+    }
+  </script>
+
+  <div class="container">
+    <h1>✨ Happy 16th Birthday ✨</h1>
+    <h1>Danizz</h1>
+    <div style="text-align: center;">
+  <p style="font-size: 1.3rem;">
+    Wishing you a year filled with unforgettable memories, tons of laughter, and success in everything you do. 💫<br><br>
+    You're such a talented soul, from your music to your humor — the world is better with you in it. Keep shining, keep playing, and keep being the amazing person you are. 🎶🥳<br><br>
+    May this 16th chapter of your life be your most exciting yet — with new adventures, new dreams, and people who love and support you every step of the way. 💖✨
+  </p>
+</div>
+
+
+    <p style="text-align:center; font-size:1.3rem; color:#ffd700; margin-top: 2rem;">
+      Dani pls don't be mad with the pics HAHAHAHAHAH 🤣📸
+    </p>
+
+    <div class="gallery">
+      <img src="dani1.jpeg" alt="daniel1">
+      <img src="dani2.jpg" alt="daniel2">
+      <img src="dani3.jpg" alt="daniel3">
+      <img src="dani4.jpg" alt="daniel4">
+      <img src="dani5.jpg" alt="daniel5">
+    </div>
+
+    <p style="text-align:center; font-size:1.4rem; color:#ffd700; margin-top: 3rem;">
+  WOHOOO my violin idol SHEESH 🎻🔥
+</p>
+<div class="video-container">
+  <video controls autoplay muted>
+    <source src="violin.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+    <div class="gif-wrap">
+      <div class="side-deco">✨You're so funny Dani!💥<br>NEVER change 💖✨</div>
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGkxc2E2aWIzbXV2d3EwaHNnc2ZkNGd6Z2YycmtqaHV3dGxlMXZ0OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lck9f0L8jPjRtkigYy/giphy.gif" class="birthday-gif">
+      <div class="side-deco">🎉You light up every room!🌟<br>Keep being YOU! 🥳✨</div>
+    </div>
+
+    <div class="gif-wrap">
+      <div class="side-deco">💫You're legendary in Brawl Stars!<br>Don't deny it 😎</div>
+      <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2ZvZzBhMHU1dW05Y20yZW4xc2w5MnpqYWhkZXduaWRtZjE3OHg2aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VlxU8LWp3SwcEvgImy/giphy.gif" class="birthday-gif">
+      <div class="side-deco">🎁Happy 16th bday Kinggggg!<br>You're unforgettable 👑</div>
+    </div>
+
+    <div class="fun-facts">
+      <h2>🎈 Fun Facts About Dani SHHHHHHH 🎈</h2>
+
+      <div class="fact-item">
+        <p><strong>1.</strong> He once claimed to be Batman 🦇</p>
+        <img src="batman.jpg" alt="Batman">
+      </div>
+
+      <div class="fact-item">
+        <p><strong>2.</strong> He hasn’t cleaned his mess in 4 days 😅</p>
+        <img src="mess.jpg" alt="Messy room">
+      </div>
+
+      <div class="fact-item">
+        <p><strong>3.</strong> He's super creative and full of ideas 🎨</p>
+        <img src="creative.jpg" alt="Creative mind">
+      </div>
+
+      <div class="fact-item">
+        <p><strong>4.</strong> He plays Brawl Stars like a champ 🎮</p>
+        <img src="brawlstars.jpg" alt="Brawl Stars">
+      </div>
+
+      <div class="fact-item">
+        <p><strong>5.</strong> Always making people laugh — hilarious and goofy 😂</p>
+        <img src="dani5.jpg" alt="Goofy Daniel">
+      </div>
+    </div>
+
+    <button class="surprise-btn" onclick="showSurprise()">🎁 Click here for a surprise 🎁</button>
+
+    <div id="surpriseMessage">
+      💖 SURPRISE! 💖<br>
+      BOOO IM STILL TALLER!<br>
+      BTWWWW clean your room 🌟<br><br>
+      <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmxtYXl1c2MwcnB6dzlxcmY4ZnBvdng1dW5iY3h0cTlrMHdpcW8zciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kodcEAHS81bSekjjKE/giphy.gif" alt="Birthday Surprise">
+    </div>
+
+    <div class="footer">Made with love by a friend who appreciates you 🎁</div>
+  </div>
+</body>
+</html>
+  
